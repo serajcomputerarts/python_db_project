@@ -43,7 +43,7 @@ class Test:
         );
         """
         self.cur.execute(sqltable)
-    def add_students(self):
+    def add_random_students(self):
         # I create data from random names
         names=["hadi","reza","ali","kazem"]
         city=["tabriz","Tehran","shiraz"]
@@ -54,32 +54,34 @@ class Test:
             self.cur.execute(insql)
             self.con.commit() 
         
+    def add_new_student(self,sid,sname,scity,sadd):
+            insql="insert into student (sid,sname,scity,sadd) values ("+str(sid)+",'"+sname+"','"+scity+"','"+sadd+"');"
+            self.cur.execute(insql)
+            self.con.commit() 
+    def add_new_book(self,bid,btitle,bau,bprice):
+            insql="insert into books (bid,btitle,bauther,bprice) values ("+str(bid)+",'"+btitle+"','"+bau+"',"+str(bprice)+");"
+            self.cur.execute(insql)
+            self.con.commit() 
     def show_all_students(self):
         r=self.cur.execute("select * from student")
         rows = self.cur.fetchall()
-        for row in rows:
-            print(row)
+        return rows
     def find_student_by_id(self,sid):
         r=self.cur.execute("select * from student where sid="+sid)
         rows = self.cur.fetchall()
-        for row in rows:
-            print(row)
+        return rows
     def find_student_by_name(self,sname):
         r=self.cur.execute("select * from student where sname='"+sname+"'")
         rows = self.cur.fetchall()
-        for row in rows:
-            print(row)
+        return rows
+    def show_all_books(self):
+        r=self.cur.execute("select * from books")
+        rows = self.cur.fetchall()
+        return rows
 
 
 ob=Test()
-#creates database tables
-#ob.create_tables()
-#adds students to database
-#ob.add_students()
-#shows all students
-#ob.show_all_students()
-#finds student by id
-#ob.find_student_by_id("1019")
-#finds student by name
-#ob.find_student_by_name("ali")
+# ob.add_new_student(300,"farhad","Tabriz","New address")
+
+
 
