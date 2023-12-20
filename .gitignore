@@ -1,2 +1,5 @@
 
 mylib.db
+databaseClasses/__pycache__
+tables/__pycache__
+services/__pycache__
