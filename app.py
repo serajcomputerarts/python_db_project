@@ -1,10 +1,17 @@
 from services.studentService import StudentService
 from tables.student import Student
 
-s = StudentService()
+studentService = StudentService()
 # s.deleteAll()
 # s.addRandomStudents()
-list = s.getList()
+# stu = Student()
+# stu.sname = "ali"
+# stu.scity = "tehran"
+# stu.sadd = "P124"
+# studentService.add(stu)
+list = studentService.getList()
 print(list[0].sname)
-a = s.getListDictionary()
-print(a)
+dictList = studentService.getListDictionary()
+print(dictList)
+count = studentService.getCount()
+print(count)
